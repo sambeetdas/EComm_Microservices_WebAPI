@@ -1,0 +1,8 @@
+C:\Epsilon\POC\eCommServices\UserMicroservices\Model\bin\Debug\netstandard2.0\Model.deps.json
+C:\Epsilon\POC\eCommServices\UserMicroservices\Model\bin\Debug\netstandard2.0\Model.dll
+C:\Epsilon\POC\eCommServices\UserMicroservices\Model\bin\Debug\netstandard2.0\Model.pdb
+C:\Epsilon\POC\eCommServices\UserMicroservices\Model\obj\Debug\netstandard2.0\Model.AssemblyInfoInputs.cache
+C:\Epsilon\POC\eCommServices\UserMicroservices\Model\obj\Debug\netstandard2.0\Model.AssemblyInfo.cs
+C:\Epsilon\POC\eCommServices\UserMicroservices\Model\obj\Debug\netstandard2.0\Model.dll
+C:\Epsilon\POC\eCommServices\UserMicroservices\Model\obj\Debug\netstandard2.0\Model.pdb
+C:\Epsilon\POC\eCommServices\UserMicroservices\Model\obj\Debug\netstandard2.0\Model.csprojAssemblyReference.cache

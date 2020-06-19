@@ -1,0 +1,13 @@
+https://localhost:44300/user/getuserbyid/9C9C8D63-4A62-4D7C-80CD-1A780C01EA20
+
+https://localhost:44319/getuserbyid/9C9C8D63-4A62-4D7C-80CD-1A780C01EA20
+
+https://localhost:44319/getuserbyname/Sipra568
+
+https://localhost:44319/processuser
+
+https://localhost:44319/getgeolocation
+
+https://localhost:44319/processproduct
+
+https://localhost:44319/getproductbysku/LG1234

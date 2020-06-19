@@ -1,0 +1,85 @@
+{
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/geo/getgeolocation",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 50299
+        }
+      ],
+      "UpstreamPathTemplate": "/getgeolocation",
+      "UpstreamHttpMethod": [ "GET" ],
+      "key": "getgeolocation"
+    },
+    {
+      "DownstreamPathTemplate": "/user/getuserbyid/{userId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44300
+        }
+      ],
+      "UpstreamPathTemplate": "/getuserbyid/{userId}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "key": "getuserbyid"
+    },
+    {
+      "DownstreamPathTemplate": "/user/getuserbyusername/{username}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44300
+        }
+      ],
+      "UpstreamPathTemplate": "/getuserbyname/{username}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "key": "getuserbyname"
+    },
+    {
+      "DownstreamPathTemplate": "/user/processuser",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44300
+        }
+      ],
+      "UpstreamPathTemplate": "/processuser",
+      "UpstreamHttpMethod": [ "POST" ],
+      "key": "processuser"
+    },
+    {
+      "DownstreamPathTemplate": "/product/processproduct",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 50298
+        }
+      ],
+      "UpstreamPathTemplate": "/processproduct",
+      "UpstreamHttpMethod": [ "POST" ],
+      "key": "processproduct"
+    },
+    {
+      "DownstreamPathTemplate": "/product/getproductbysku/{sku}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 50298
+        }
+      ],
+      "UpstreamPathTemplate": "/getproductbysku/{sku}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "key": "getproductbysku"
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:44319"
+  }
+}
