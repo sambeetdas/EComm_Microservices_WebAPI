@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Ocelot" Version="14.1.0" />
+    <PackageReference Include="Auth.JWT" Version="1.0.7" />
+    <PackageReference Include="Ocelot" Version="16.0.1" />
   </ItemGroup>
 
 
