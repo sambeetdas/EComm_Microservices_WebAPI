@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Model;
 
-namespace UserMicroservices.Controllers
+namespace AuthMicroservices.Controllers
 {
     [Route("[controller]")]
     [ApiController]
