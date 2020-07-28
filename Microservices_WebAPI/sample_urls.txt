@@ -11,3 +11,5 @@ https://localhost:44319/getgeolocation
 https://localhost:44319/processproduct
 
 https://localhost:44319/getproductbysku/LG1234
+
+https://localhost:44319/createtoken
