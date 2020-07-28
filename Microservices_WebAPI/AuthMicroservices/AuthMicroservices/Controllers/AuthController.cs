@@ -25,6 +25,8 @@ namespace UserMicroservices.Controllers
         {
             this._authRepository = authRepository;
             this._configuration = configuration;
+            this._module = module;
+            this._reqModel = reqModel;
         }
 
 

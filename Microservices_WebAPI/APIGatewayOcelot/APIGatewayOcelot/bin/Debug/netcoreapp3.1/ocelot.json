@@ -1,6 +1,19 @@
 {
   "ReRoutes": [
     {
+      "DownstreamPathTemplate": "/auth/createtoken",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 50305
+        }
+      ],
+      "UpstreamPathTemplate": "/createtoken",
+      "UpstreamHttpMethod": [ "POST" ],
+      "key": "createtoken"
+    },
+    {
       "DownstreamPathTemplate": "/geo/getgeolocation",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
