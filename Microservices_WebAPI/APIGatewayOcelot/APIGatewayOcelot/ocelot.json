@@ -24,7 +24,11 @@
       ],
       "UpstreamPathTemplate": "/getgeolocation",
       "UpstreamHttpMethod": [ "GET" ],
-      "key": "getgeolocation"
+      "key": "getgeolocation",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "CustomAuth",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/user/getuserbyid/{userId}",
@@ -37,7 +41,11 @@
       ],
       "UpstreamPathTemplate": "/getuserbyid/{userId}",
       "UpstreamHttpMethod": [ "GET" ],
-      "key": "getuserbyid"
+      "key": "getuserbyid",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "CustomAuth",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/user/getuserbyusername/{username}",
@@ -50,7 +58,11 @@
       ],
       "UpstreamPathTemplate": "/getuserbyname/{username}",
       "UpstreamHttpMethod": [ "GET" ],
-      "key": "getuserbyname"
+      "key": "getuserbyname",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "CustomAuth",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/user/processuser",
@@ -63,7 +75,11 @@
       ],
       "UpstreamPathTemplate": "/processuser",
       "UpstreamHttpMethod": [ "POST" ],
-      "key": "processuser"
+      "key": "processuser",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "CustomAuth",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/product/processproduct",
@@ -76,7 +92,11 @@
       ],
       "UpstreamPathTemplate": "/processproduct",
       "UpstreamHttpMethod": [ "POST" ],
-      "key": "processproduct"
+      "key": "processproduct",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "CustomAuth",
+        "AllowedScopes": []
+      }
     },
     {
       "DownstreamPathTemplate": "/product/getproductbysku/{sku}",
@@ -89,7 +109,11 @@
       ],
       "UpstreamPathTemplate": "/getproductbysku/{sku}",
       "UpstreamHttpMethod": [ "GET" ],
-      "key": "getproductbysku"
+      "key": "getproductbysku",
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "CustomAuth",
+        "AllowedScopes": []
+      }
     }
   ],
   "GlobalConfiguration": {

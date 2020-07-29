@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using Ocelot.Middleware;
 using Ocelot.DependencyInjection;
 using Auth.JWT;
+using APIGatewayOcelot.AuthHandler;
 
 namespace APIGatewayOcelot
 {
@@ -30,6 +31,14 @@ namespace APIGatewayOcelot
         {
             //Added for Auth.JWT
             services.AddAuthService();
+
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = "CustomAuth";
+                //options.DefaultAuthenticateScheme = "CustomScheme";
+                //options.DefaultChallengeScheme = "CustomScheme";
+            })
+           .AddCustomAuth("CustomAuth", o => { });
 
             services.AddOcelot(Configuration);
         }
