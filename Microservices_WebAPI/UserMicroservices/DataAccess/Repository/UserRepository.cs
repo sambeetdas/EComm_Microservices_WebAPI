@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using DataAccess.IRepository;
+using Microsoft.Extensions.Configuration;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -10,18 +11,16 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repository
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : ConnectionManager, IUserRepository
     {
-        private readonly string _connectionString;
-
-        public UserRepository(string connectionString)
+        private readonly IConfiguration _configuration;
+        public UserRepository(IConfiguration configuration) : base(configuration)
         {
-            _connectionString = connectionString;
+            _configuration = configuration;
         }
-
         public UserModel ProcessUser(UserModel user)
         {
-                using (var connection = new SqlConnection(_connectionString))
+                using (var connection = new SqlConnection(GetConnection()))
                 {
                     connection.Open();
 
@@ -59,7 +58,7 @@ namespace DataAccess.Repository
 
         public UserModel GetUserById(Guid userId)
         {
-            using (var connection = new SqlConnection(_connectionString))
+            using (var connection = new SqlConnection(GetConnection()))
             {
                 connection.Open();
 
@@ -75,7 +74,7 @@ namespace DataAccess.Repository
 
         public UserModel GetUserByUserName(string username)
         {
-            using(var connection = new SqlConnection(_connectionString))
+            using(var connection = new SqlConnection(GetConnection()))
             {
                 connection.Open();
 

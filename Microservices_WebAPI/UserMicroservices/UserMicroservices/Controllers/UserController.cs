@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using DataAccess.IRepository;
-using Microsoft.AspNetCore.Http;
+﻿using DataAccess.IRepository;
 using Microsoft.AspNetCore.Mvc;
 using Model;
+using ServiceManager.IManager;
+using System;
 
 namespace UserMicroservices.Controllers
 {
@@ -13,10 +10,10 @@ namespace UserMicroservices.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly IUserRepository _userRepository;
-        public UserController(IUserRepository userRepository)
+        private readonly IUser _user;
+        public UserController(IUser user)
         {
-            this._userRepository = userRepository;
+            _user = user;
         }
 
 
@@ -29,7 +26,7 @@ namespace UserMicroservices.Controllers
                 return BadRequest("Invalid model object");
             }
 
-            dynamic result = _userRepository.ProcessUser(user);
+            dynamic result = _user.ProcessUser(user);
             return Ok(result);
         }
 
@@ -42,7 +39,7 @@ namespace UserMicroservices.Controllers
                 return BadRequest("Invalid model object");
             }
 
-            dynamic result = _userRepository.GetUserById(userId);
+            dynamic result = _user.GetUserById(userId);
             return Ok(result);
         }
 
@@ -54,7 +51,7 @@ namespace UserMicroservices.Controllers
                 return BadRequest("Invalid model object");
             }
 
-            dynamic result = _userRepository.GetUserByUserName(username);
+            dynamic result = _user.GetUserByUserName(username);
             return Ok(result);
         }
     }

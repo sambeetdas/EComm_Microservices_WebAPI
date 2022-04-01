@@ -9,3 +9,16 @@ C:\Epsilon\POC\eCommServices\UserMicroservices\DataAccess\bin\Debug\netstandard2
 C:\Epsilon\POC\eCommServices\UserMicroservices\DataAccess\obj\Debug\netstandard2.0\DataAccess.csproj.CopyComplete
 C:\Epsilon\POC\eCommServices\UserMicroservices\DataAccess\obj\Debug\netstandard2.0\DataAccess.dll
 C:\Epsilon\POC\eCommServices\UserMicroservices\DataAccess\obj\Debug\netstandard2.0\DataAccess.pdb
+D:\Sambeet\Working Folder\EComm_Microservices_WebAPI\Microservices_WebAPI\UserMicroservices\DataAccess\bin\Debug\netstandard2.0\DataAccess.deps.json
+D:\Sambeet\Working Folder\EComm_Microservices_WebAPI\Microservices_WebAPI\UserMicroservices\DataAccess\bin\Debug\netstandard2.0\DataAccess.dll
+D:\Sambeet\Working Folder\EComm_Microservices_WebAPI\Microservices_WebAPI\UserMicroservices\DataAccess\bin\Debug\netstandard2.0\DataAccess.pdb
+D:\Sambeet\Working Folder\EComm_Microservices_WebAPI\Microservices_WebAPI\UserMicroservices\DataAccess\bin\Debug\netstandard2.0\Model.dll
+D:\Sambeet\Working Folder\EComm_Microservices_WebAPI\Microservices_WebAPI\UserMicroservices\DataAccess\bin\Debug\netstandard2.0\Model.pdb
+D:\Sambeet\Working Folder\EComm_Microservices_WebAPI\Microservices_WebAPI\UserMicroservices\DataAccess\obj\Debug\netstandard2.0\DataAccess.csproj.AssemblyReference.cache
+D:\Sambeet\Working Folder\EComm_Microservices_WebAPI\Microservices_WebAPI\UserMicroservices\DataAccess\obj\Debug\netstandard2.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+D:\Sambeet\Working Folder\EComm_Microservices_WebAPI\Microservices_WebAPI\UserMicroservices\DataAccess\obj\Debug\netstandard2.0\DataAccess.AssemblyInfoInputs.cache
+D:\Sambeet\Working Folder\EComm_Microservices_WebAPI\Microservices_WebAPI\UserMicroservices\DataAccess\obj\Debug\netstandard2.0\DataAccess.AssemblyInfo.cs
+D:\Sambeet\Working Folder\EComm_Microservices_WebAPI\Microservices_WebAPI\UserMicroservices\DataAccess\obj\Debug\netstandard2.0\DataAccess.csproj.CoreCompileInputs.cache
+D:\Sambeet\Working Folder\EComm_Microservices_WebAPI\Microservices_WebAPI\UserMicroservices\DataAccess\obj\Debug\netstandard2.0\DataAccess.csproj.CopyComplete
+D:\Sambeet\Working Folder\EComm_Microservices_WebAPI\Microservices_WebAPI\UserMicroservices\DataAccess\obj\Debug\netstandard2.0\DataAccess.dll
+D:\Sambeet\Working Folder\EComm_Microservices_WebAPI\Microservices_WebAPI\UserMicroservices\DataAccess\obj\Debug\netstandard2.0\DataAccess.pdb

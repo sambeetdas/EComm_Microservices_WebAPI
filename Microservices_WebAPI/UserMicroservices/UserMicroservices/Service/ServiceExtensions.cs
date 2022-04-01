@@ -1,10 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace UserMicroservices
+namespace UserMicroservices.Service
 {
     public static class ServiceExtensions
     {

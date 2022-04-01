@@ -1,0 +1,17 @@
+D:\Sambeet\Working Folder\EComm_Microservices_WebAPI\Microservices_WebAPI\UserMicroservices\ApiManager\bin\Debug\net6.0\ServiceManager.deps.json
+D:\Sambeet\Working Folder\EComm_Microservices_WebAPI\Microservices_WebAPI\UserMicroservices\ApiManager\bin\Debug\net6.0\ServiceManager.dll
+D:\Sambeet\Working Folder\EComm_Microservices_WebAPI\Microservices_WebAPI\UserMicroservices\ApiManager\bin\Debug\net6.0\ref\ServiceManager.dll
+D:\Sambeet\Working Folder\EComm_Microservices_WebAPI\Microservices_WebAPI\UserMicroservices\ApiManager\bin\Debug\net6.0\ServiceManager.pdb
+D:\Sambeet\Working Folder\EComm_Microservices_WebAPI\Microservices_WebAPI\UserMicroservices\ApiManager\bin\Debug\net6.0\DataAccess.dll
+D:\Sambeet\Working Folder\EComm_Microservices_WebAPI\Microservices_WebAPI\UserMicroservices\ApiManager\bin\Debug\net6.0\Model.dll
+D:\Sambeet\Working Folder\EComm_Microservices_WebAPI\Microservices_WebAPI\UserMicroservices\ApiManager\bin\Debug\net6.0\DataAccess.pdb
+D:\Sambeet\Working Folder\EComm_Microservices_WebAPI\Microservices_WebAPI\UserMicroservices\ApiManager\bin\Debug\net6.0\Model.pdb
+D:\Sambeet\Working Folder\EComm_Microservices_WebAPI\Microservices_WebAPI\UserMicroservices\ApiManager\obj\Debug\net6.0\ServiceManager.csproj.AssemblyReference.cache
+D:\Sambeet\Working Folder\EComm_Microservices_WebAPI\Microservices_WebAPI\UserMicroservices\ApiManager\obj\Debug\net6.0\ServiceManager.GeneratedMSBuildEditorConfig.editorconfig
+D:\Sambeet\Working Folder\EComm_Microservices_WebAPI\Microservices_WebAPI\UserMicroservices\ApiManager\obj\Debug\net6.0\ServiceManager.AssemblyInfoInputs.cache
+D:\Sambeet\Working Folder\EComm_Microservices_WebAPI\Microservices_WebAPI\UserMicroservices\ApiManager\obj\Debug\net6.0\ServiceManager.AssemblyInfo.cs
+D:\Sambeet\Working Folder\EComm_Microservices_WebAPI\Microservices_WebAPI\UserMicroservices\ApiManager\obj\Debug\net6.0\ServiceManager.csproj.CoreCompileInputs.cache
+D:\Sambeet\Working Folder\EComm_Microservices_WebAPI\Microservices_WebAPI\UserMicroservices\ApiManager\obj\Debug\net6.0\ServiceManager.csproj.CopyComplete
+D:\Sambeet\Working Folder\EComm_Microservices_WebAPI\Microservices_WebAPI\UserMicroservices\ApiManager\obj\Debug\net6.0\ServiceManager.dll
+D:\Sambeet\Working Folder\EComm_Microservices_WebAPI\Microservices_WebAPI\UserMicroservices\ApiManager\obj\Debug\net6.0\ref\ServiceManager.dll
+D:\Sambeet\Working Folder\EComm_Microservices_WebAPI\Microservices_WebAPI\UserMicroservices\ApiManager\obj\Debug\net6.0\ServiceManager.pdb
