@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess.IRepository
 {
-    internal class IConnectionManager
+    public interface IConnectionManager
     {
+        string GetConnection();
     }
 }

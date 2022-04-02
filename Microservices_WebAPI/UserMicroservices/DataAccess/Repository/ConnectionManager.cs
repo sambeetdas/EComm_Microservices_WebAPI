@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using DataAccess.IRepository;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repository
 {
-    public class ConnectionManager
+    public class ConnectionManager : IConnectionManager
     {
         private readonly IConfiguration _configuration;
         public ConnectionManager(IConfiguration configuration)
