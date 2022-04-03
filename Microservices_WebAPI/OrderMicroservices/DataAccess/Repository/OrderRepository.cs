@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using DataAccess.IRepository;
+using Microsoft.Extensions.Configuration;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -10,18 +11,17 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repository
 {
-    public class ProductRepository : IOrderRepository
+    public class OrderRepository : ConnectionManager, IOrderRepository
     {
-        private readonly string _connectionString;
-
-        public ProductRepository(string connectionString)
+        private readonly IConfiguration _configuration;
+        public OrderRepository(IConfiguration configuration) : base(configuration)
         {
-            _connectionString = connectionString;
+            _configuration = configuration;
         }
 
         //public OrderModel PlaceOrder(OrderModel order)
         //{
-        //        using (var connection = new SqlConnection(_connectionString))
+        //        using (var connection = new SqlConnection(GetConnection()))
         //        {
         //            connection.Open();
 
@@ -37,7 +37,7 @@ namespace DataAccess.Repository
         //            parameters.Add("@ISINSALE", product.IsInSale, DbType.String, ParameterDirection.Input);
         //            parameters.Add("@SKU", product.Sku, DbType.String, ParameterDirection.Input);
         //            parameters.Add("@GEOLOCATIONID", product.GeoLocationId, DbType.Guid, ParameterDirection.Input);
-                    
+
 
         //            var result = connection.QueryFirstOrDefault<OrderModel>("dbo.S_Process_Product", parameters, commandType: CommandType.StoredProcedure);
 
@@ -48,7 +48,7 @@ namespace DataAccess.Repository
 
         public IEnumerable<OrderModel> GetOrderForUser(Guid userId)
         {
-            using (var connection = new SqlConnection(_connectionString))
+            using (var connection = new SqlConnection(GetConnection()))
             {
                 connection.Open();
 

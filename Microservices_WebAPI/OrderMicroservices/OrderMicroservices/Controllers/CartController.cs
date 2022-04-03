@@ -6,6 +6,7 @@ using DataAccess.IRepository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Model;
+using ServiceManager.IManager;
 
 namespace OrderMicroservices.Controllers
 {
@@ -13,10 +14,10 @@ namespace OrderMicroservices.Controllers
     [ApiController]
     public class CartController : ControllerBase
     {
-        private readonly ICartRepository _cartRepository;
-        public CartController(ICartRepository cartRepository)
+        private readonly ICart _cartManager;
+        public CartController(ICart cartManager)
         {
-            this._cartRepository = cartRepository;
+            this._cartManager = cartManager;
         }
 
         [Route("processcart")]
@@ -28,7 +29,7 @@ namespace OrderMicroservices.Controllers
                 return BadRequest("Invalid model object");
             }
 
-            dynamic result = _cartRepository.ProcessCart(cart);
+            dynamic result = _cartManager.ProcessCart(cart);
             return Ok(result);
         }
 
@@ -41,7 +42,7 @@ namespace OrderMicroservices.Controllers
                 return BadRequest("Invalid model object");
             }
 
-            dynamic result = _cartRepository.ClearCart(userId);
+            dynamic result = _cartManager.ClearCart(userId);
             return Ok(result);
         }
 
@@ -54,7 +55,7 @@ namespace OrderMicroservices.Controllers
                 return BadRequest("Invalid model object");
             }
 
-            dynamic result = _cartRepository.DeleteCart(userId,productId);
+            dynamic result = _cartManager.DeleteCart(userId,productId);
             return Ok(result);
         }
 
@@ -67,7 +68,7 @@ namespace OrderMicroservices.Controllers
                 return BadRequest("Invalid model object");
             }
 
-            dynamic result = _cartRepository.GetCartForUser(userId);
+            dynamic result = _cartManager.GetCartForUser(userId);
             return Ok(result);
         }
     }

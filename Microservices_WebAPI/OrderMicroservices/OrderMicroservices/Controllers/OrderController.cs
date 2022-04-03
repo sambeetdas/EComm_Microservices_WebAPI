@@ -6,6 +6,7 @@ using DataAccess.IRepository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Model;
+using ServiceManager.IManager;
 
 namespace UserMicroservices.Controllers
 {
@@ -13,10 +14,10 @@ namespace UserMicroservices.Controllers
     [ApiController]
     public class OrderController : ControllerBase
     {
-        private readonly IOrderRepository _orderRepository;
-        public OrderController(IOrderRepository orderRepository)
+        private readonly IOrder _orderManager;
+        public OrderController(IOrder orderManager)
         {
-            this._orderRepository = orderRepository;
+            _orderManager = orderManager;
         }
 
 
@@ -28,7 +29,7 @@ namespace UserMicroservices.Controllers
                 return BadRequest("Invalid model object");
             }
 
-            dynamic result = _orderRepository.GetOrderForUser(userId);
+            dynamic result = _orderManager.GetOrdersForUser(userId);
             return Ok(result);
         }
     }

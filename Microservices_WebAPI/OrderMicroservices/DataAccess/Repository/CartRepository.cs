@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using DataAccess.IRepository;
+using Microsoft.Extensions.Configuration;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -10,17 +11,16 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repository
 {
-    public class CartRepository : ICartRepository
+    public class CartRepository : ConnectionManager, ICartRepository
     {
-        private readonly string _connectionString;
-
-        public CartRepository(string connectionString)
+        private readonly IConfiguration _configuration;
+        public CartRepository(IConfiguration configuration) : base(configuration)
         {
-            _connectionString = connectionString;
+            _configuration = configuration;
         }
         public IEnumerable<CartModel> ProcessCart(CartModel cart)
         {
-            using (var connection = new SqlConnection(_connectionString))
+            using (var connection = new SqlConnection(GetConnection()))
             {
                 connection.Open();
 
@@ -37,7 +37,7 @@ namespace DataAccess.Repository
         }
         public dynamic ClearCart(Guid userId)
         {
-            using (var connection = new SqlConnection(_connectionString))
+            using (var connection = new SqlConnection(GetConnection()))
             {
                 connection.Open();
 
@@ -52,7 +52,7 @@ namespace DataAccess.Repository
 
         public dynamic DeleteCart(Guid userId, Guid productId)
         {
-            using (var connection = new SqlConnection(_connectionString))
+            using (var connection = new SqlConnection(GetConnection()))
             {
                 connection.Open();
 
@@ -68,7 +68,7 @@ namespace DataAccess.Repository
 
         public IEnumerable<CartModel> GetCartForUser(Guid userId)
         {
-            using (var connection = new SqlConnection(_connectionString))
+            using (var connection = new SqlConnection(GetConnection()))
             {
                 connection.Open();
 
