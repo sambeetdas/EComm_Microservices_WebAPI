@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Model;
+using ServiceManager.IManager;
 
 namespace AuthMicroservices.Controllers
 {
@@ -17,16 +18,11 @@ namespace AuthMicroservices.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly IAuthRepository _authRepository;
-        private readonly IConfiguration _configuration;
-        private readonly JWTModule _module;
-        private readonly TokenRequestModel _reqModel;
-        public AuthController(IAuthRepository authRepository, JWTModule module, TokenRequestModel reqModel, IConfiguration configuration)
+        private readonly IAuthManager _authManager;
+
+        public AuthController(IAuthManager authManager)
         {
-            this._authRepository = authRepository;
-            this._configuration = configuration;
-            this._module = module;
-            this._reqModel = reqModel;
+            _authManager = authManager;
         }
 
 
@@ -39,16 +35,7 @@ namespace AuthMicroservices.Controllers
                 return BadRequest("Invalid model object");
             }
 
-            dynamic tokenResult = null;
-            if (_authRepository.ValidateUser(auth))
-            {
-                string secrect = _configuration.GetSection("AuthJWT").GetSection("Secrect").Value;
-
-                _reqModel.Issuer = "authjwt_team";
-                _reqModel.ExpiryInSeconds = "18000";
-                //Below fuction would create the token.
-                tokenResult = _module.CreateToken(_reqModel, secrect, AlgorithmType.SHA256);
-            }
+            var tokenResult = _authManager.CreateToken(auth);
 
             return Ok(tokenResult);
         }

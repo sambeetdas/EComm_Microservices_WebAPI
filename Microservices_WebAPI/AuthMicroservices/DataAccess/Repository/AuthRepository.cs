@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using DataAccess.IRepository;
+using Microsoft.Extensions.Configuration;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -10,13 +11,12 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repository
 {
-    public class AuthRepository : IAuthRepository
+    public class AuthRepository : ConnectionManager, IAuthRepository
     {
-        private readonly string _connectionString;
-
-        public AuthRepository(string connectionString)
+        private readonly IConfiguration _configuration;
+        public AuthRepository(IConfiguration configuration) : base(configuration)
         {
-            _connectionString = connectionString;
+            _configuration = configuration;
         }
 
         public bool ValidateUser(AuthModel auth)
