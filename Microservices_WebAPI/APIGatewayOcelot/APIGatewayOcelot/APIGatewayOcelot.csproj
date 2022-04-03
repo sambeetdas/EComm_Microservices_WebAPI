@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Auth.JWT" Version="1.0.7" />
-    <PackageReference Include="Ocelot" Version="16.0.1" />
+    <PackageReference Include="Auth.JWT" Version="1.0.9" />
+    <PackageReference Include="Ocelot" Version="18.0.0" />
   </ItemGroup>
 
 

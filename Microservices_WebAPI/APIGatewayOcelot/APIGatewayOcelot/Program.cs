@@ -1,61 +1,34 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
+using APIGatewayOcelot.AuthHandler;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Ocelot.Middleware;
 using Ocelot.DependencyInjection;
-using Microsoft.AspNetCore;
+using Ocelot.Middleware;
 
-namespace APIGatewayOcelot
+var builder = WebApplication.CreateBuilder(args);
+IConfiguration configuration = new ConfigurationBuilder()
+                            .AddJsonFile("ocelot.json")
+                            .Build();
+
+#region Add Services
+//Added for Auth.JWT
+//builder.Services.AddAuthService();
+
+builder.Services.AddAuthentication(options =>
 {
-    public class Program
-    {
-        //public static void Main(string[] args)
-        //{
-        //    new WebHostBuilder()
-        //       .UseKestrel()
-        //       .UseContentRoot(Directory.GetCurrentDirectory())
-        //       .ConfigureAppConfiguration((hostingContext, config) =>
-        //       {
-        //           config
-        //               .SetBasePath(hostingContext.HostingEnvironment.ContentRootPath)
-        //               .AddJsonFile("appsettings.json", true, true)
-        //               .AddJsonFile($"appsettings.{hostingContext.HostingEnvironment.EnvironmentName}.json", true, true)
-        //               .AddJsonFile("ocelot.json")
-        //               .AddEnvironmentVariables();
-        //       })
-        //       .ConfigureServices(s => {
-        //           s.AddOcelot();
-        //       })
-        //       .ConfigureLogging((hostingContext, logging) =>
-        //       {
-        //           //add your logging
-        //       })
-        //       .UseIISIntegration()
-        //       .Configure(app =>
-        //       {
-        //           app.UseOcelot().Wait();
-        //       })
-        //       .Build()
-        //       .Run();
-        //}
+    options.DefaultScheme = "CustomAuth";
+    //options.DefaultAuthenticateScheme = "CustomScheme";
+    //options.DefaultChallengeScheme = "CustomScheme";
+}).AddCustomAuth("CustomAuth", o => { });
 
-        public static void Main(string[] args)
-        {
-            CreateWebHostBuilder(args).Build().Run();
-        }
+builder.Services.AddOcelot(configuration);
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-            .ConfigureAppConfiguration((host, config) => {
-                config.AddJsonFile("ocelot.json");
-            })
-            .UseStartup<Startup>();                              
-    }
-}
+#endregion
+
+
+var app = builder.Build();
+
+app.UseOcelot();
+
+app.Run();
