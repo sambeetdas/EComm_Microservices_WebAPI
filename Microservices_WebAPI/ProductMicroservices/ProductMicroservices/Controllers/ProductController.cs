@@ -6,6 +6,7 @@ using DataAccess.IRepository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Model;
+using ServiceManager.IManager;
 
 namespace UserMicroservices.Controllers
 {
@@ -13,10 +14,10 @@ namespace UserMicroservices.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly IProductRepository _productRepository;
-        public ProductController(IProductRepository productRepository)
+        private readonly IProduct _productManager;
+        public ProductController(IProduct productManager)
         {
-            this._productRepository = productRepository;
+            _productManager = productManager;
         }
 
 
@@ -29,7 +30,7 @@ namespace UserMicroservices.Controllers
                 return BadRequest("Invalid model object");
             }
 
-            dynamic result = _productRepository.ProcessProduct(product);
+            dynamic result = _productManager.ProcessProduct(product);
             return Ok(result);
         }
 
@@ -42,7 +43,7 @@ namespace UserMicroservices.Controllers
                 return BadRequest("Invalid model object");
             }
 
-            dynamic result = _productRepository.GetProductBySku(sku);
+            dynamic result = _productManager.GetProductBySku(sku);
             return Ok(result);
         }
     }

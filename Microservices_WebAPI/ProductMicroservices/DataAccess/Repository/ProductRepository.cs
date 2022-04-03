@@ -1,27 +1,24 @@
 ﻿using Dapper;
 using DataAccess.IRepository;
+using Microsoft.Extensions.Configuration;
 using Model;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess.Repository
 {
-    public class ProductRepository : IProductRepository
+    public class ProductRepository : ConnectionManager, IProductRepository
     {
-        private readonly string _connectionString;
-
-        public ProductRepository(string connectionString)
+        private readonly IConfiguration _configuration;
+        public ProductRepository(IConfiguration configuration) : base(configuration)
         {
-            _connectionString = connectionString;
+            _configuration = configuration;
         }
 
         public ProductModel ProcessProduct(ProductModel product)
         {
-                using (var connection = new SqlConnection(_connectionString))
+                using (var connection = new SqlConnection(GetConnection()))
                 {
                     connection.Open();
 
@@ -48,7 +45,7 @@ namespace DataAccess.Repository
 
         public ProductModel GetProductBySku(String sku)
         {
-            using (var connection = new SqlConnection(_connectionString))
+            using (var connection = new SqlConnection(GetConnection()))
             {
                 connection.Open();
 
