@@ -1,26 +1,44 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
+using DataAccess.IRepository;
+using DataAccess.Repository;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using ServiceManager.IManager;
+using ServiceManager.Manager;
+using UserMicroservices.Service;
 
-namespace UserMicroservices
+var builder = WebApplication.CreateBuilder(args);
+
+#region Add Services
+builder.Services.ConfigureCors();
+
+builder.Services.AddControllers();
+
+builder.Services.AddScoped<IGeoRepository, GeoRepository>();
+
+builder.Services.AddScoped<IGeoConfig, GeoConfig>();
+
+builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddSwaggerGen();
+#endregion
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
 {
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            CreateHostBuilder(args).Build().Run();
-        }
-
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
-    }
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
+
+app.UseHttpsRedirection();
+
+//app.UseRouting();
+
+//app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();

@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using DataAccess.IRepository;
+using Microsoft.Extensions.Configuration;
 using Model;
 using System;
 using System.Collections.Generic;
@@ -10,18 +11,17 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Repository
 {
-    public class GeoRepository : IGeoRepository
+    public class GeoRepository : ConnectionManager, IGeoRepository
     {
-        private readonly string _connectionString;
-
-        public GeoRepository(string connectionString)
+        private readonly IConfiguration _configuration;
+        public GeoRepository(IConfiguration configuration) : base(configuration)
         {
-            _connectionString = connectionString;
+            _configuration = configuration;
         }
 
         public GeoLocationModel GetGeoLocation()
         {
-            using (var connection = new SqlConnection(_connectionString))
+            using (var connection = new SqlConnection(GetConnection()))
             {
                 connection.Open();
 

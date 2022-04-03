@@ -6,6 +6,7 @@ using DataAccess.IRepository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Model;
+using ServiceManager.IManager;
 
 namespace UserMicroservices.Controllers
 {
@@ -13,10 +14,10 @@ namespace UserMicroservices.Controllers
     [ApiController]
     public class GeoController : ControllerBase
     {
-        private readonly IGeoRepository _geoRepository;
-        public GeoController(IGeoRepository geoRepository)
+        private readonly IGeoConfig _geoConfig;
+        public GeoController(IGeoConfig geoConfig)
         {
-            this._geoRepository = geoRepository;
+            _geoConfig = geoConfig;
         }
 
 
@@ -29,7 +30,7 @@ namespace UserMicroservices.Controllers
                 return BadRequest("Invalid model object");
             }
 
-            dynamic result = _geoRepository.GetGeoLocation();
+            dynamic result = _geoConfig.GetGeolocation();
             return Ok(result);
         }
     }
